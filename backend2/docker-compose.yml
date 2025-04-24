@@ -1,0 +1,23 @@
+version: '3'
+services:
+   mariadb-shesinfo:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "rootpassword"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "password"
+      MYSQL_DATABASE: test
+      
+    ports: 
+      - "3306:3306"
+    volumes:
+      - job_seeker_data:/var/lib/mysql
+    networks:
+      - my_networks
+
+volumes:
+  job_seeker_data: 
+networks:
+  my_networks:
+    driver: bridge
