@@ -1,6 +1,5 @@
 # Laravel Jobseeker Company
 
-🚀 **Laravel test payment gateway** adalah aplikasi berbasis Laravel yang menyediakan fitur transaksi **deposit** dan **withdraw** beserta menggunakan websocket
 
 ## 📋 Requirements
 
