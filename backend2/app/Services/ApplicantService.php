@@ -75,6 +75,8 @@ class ApplicantService extends ResponseService
 
     public function update(string $id, UpdateApplicantDto $data)
     {
+
+        
         $find = $this->findById($id);
         try {
             $updated =  $this->applicantRepository->update($find->id, $data);
@@ -93,11 +95,12 @@ class ApplicantService extends ResponseService
         DB::beginTransaction();
         try {
 
-            $this->vacancyService->deleteById($find->id);
+            $this->applicantRepository->deleteById($find->id);
             DB::commit();
             return $find->id;
         } catch (\Exception $e) {
             DB::rollBack();
+
             FacadesLog::info($e);
             return $this->internalServer(null, "Error Deleted Applicant Data");
         }

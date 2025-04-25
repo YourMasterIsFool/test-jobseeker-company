@@ -88,7 +88,7 @@ class ApplicantController extends Controller
         } catch (\Exception $e) {
             return $this->responseService->unProcessableEntity($e->errors(), "Error Validation");
         }
-        return $this->responseService->successResponse($this->applicantService->update($id, $validated->toUpda()));
+        return $this->responseService->successResponse($this->applicantService->update($id, $validated->toUpdateDto()));
     }
 
     /**

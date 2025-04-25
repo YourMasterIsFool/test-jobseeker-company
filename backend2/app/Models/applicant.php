@@ -16,4 +16,9 @@ class applicant extends Model
     {
         return $this->belongsTo(vacancy::class, 'vacancy_id', 'id');
     }
+
+    public function status()
+    {
+        return $this->belongsTo(status_applicant::class, 'status_applicant_id', 'id');
+    }
 }

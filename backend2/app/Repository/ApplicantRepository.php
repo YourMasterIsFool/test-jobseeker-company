@@ -16,8 +16,6 @@ class ApplicantRepository
 
         $query =  applicant::query();
 
-
-
         if ($filter->search) {
             $query =  $query->whereHas('candidate', function ($query) use ($filter) {
                 $search =  $filter->search;
@@ -28,7 +26,7 @@ class ApplicantRepository
             });
         }
         $query = $query
-            ->with(['candidate', 'vacancy'])
+            ->with(['candidate', 'vacancy', 'status'])
             ->cursorPaginate($filter->page_length, ['*'], 'cursor', $filter->cursor);
         return $query;
     }
